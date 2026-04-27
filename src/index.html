@@ -6,9 +6,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Vault: ToDo App</title>
 		<script type="module" src="./main.js"></script>
-		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="./styles/reset.css" />
+		<link rel="stylesheet" href="./styles/style.css" />
 	</head>
 	<body>
-		<h1>foreverzero...</h1>
+		<h1>Vault</h1>
+
+		<main>
+			<form>
+				<input
+					type="text"
+					name=""
+					id="task-input"
+					placeholder="write a new task here... ↵"
+					autocomplete="off"
+				/>
+				<button id="add-task">ADD</button>
+			</form>
+
+			<ul id="task-list"></ul>
+		</main>
 	</body>
 </html>

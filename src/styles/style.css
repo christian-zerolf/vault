@@ -1,0 +1,163 @@
+@font-face {
+	font-family: 'Manrope Variable';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 200 800;
+	src: url(@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2)
+		format('woff2-variations');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+		U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+	--background: #010112;
+	--primary-color: #010110;
+	--secondary-color: #2c2c40;
+	--accent-color: #ff9900;
+	--text-color: #e5e5e5;
+	--error: #ff0033;
+
+	--radius: 100px;
+}
+
+html {
+	font-family: 'Manrope Variable', sans-serif;
+	color: var(--text-color);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+	background-color: var(--background);
+}
+
+h1 {
+	font-size: 4rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	text-align: center;
+	color: var(--accent-color);
+	margin-block: 4rem 2rem;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	min-width: 316px;
+	max-width: 600px;
+}
+
+#task-input {
+	padding: 1rem;
+	width: 100%;
+	background: none;
+	border: 2px solid var(--secondary-color);
+	border-radius: var(--radius);
+	color: var(--text-color);
+	caret-color: var(--accent-color);
+
+	&:focus {
+		outline: 1px solid var(--accent-color);
+	}
+
+	&:hover {
+		outline: 1px solid var(--accent-color);
+	}
+}
+
+form {
+	position: relative;
+}
+
+#add-task {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	background-color: var(--accent-color);
+	height: 100%;
+	padding: 0 2rem;
+	border: none;
+	border-radius: var(--radius);
+	font: inherit;
+	font-weight: 600;
+	color: var(--background);
+	cursor: pointer;
+}
+
+#task-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+
+	.task {
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		padding: 0 1rem;
+		background-color: var(--primary-color);
+		border-radius: var(--radius);
+		width: 100%;
+
+		.custom-checkbox {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-shrink: 0;
+			border: 2px solid var(--accent-color);
+			border-radius: 50%;
+			transition: 200ms ease;
+			cursor: pointer;
+		}
+
+		.task-text {
+			padding: 1rem;
+			padding-right: 0;
+			flex-grow: 1;
+			transition: 200ms ease;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			cursor: pointer;
+		}
+
+		.remove-task {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-shrink: 0;
+			padding: 3px;
+			background: none;
+			border: none;
+			cursor: pointer;
+
+			svg {
+				transition: 200ms ease;
+			}
+			&:hover svg {
+				fill: var(--error);
+			}
+		}
+	}
+}
+
+input[type='checkbox'] {
+	display: none;
+}
+
+input[type='checkbox']:checked ~ .custom-checkbox {
+	background-color: var(--accent-color);
+}
+
+input[type='checkbox']:checked ~ .custom-checkbox svg {
+	fill: var(--primary-color);
+}
+
+input[type='checkbox']:checked ~ .task-text {
+	text-decoration: line-through;
+	color: var(--secondary-color);
+}
