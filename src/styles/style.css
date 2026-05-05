@@ -52,8 +52,12 @@ main {
 	max-width: 800px;
 }
 
+form {
+	position: relative;
+}
+
 #task-input {
-	padding: 1rem;
+	padding: 1rem 6.4rem 1rem 1rem;
 	width: 100%;
 	background: none;
 	border: 2px solid var(--secondary-color);
@@ -66,10 +70,6 @@ main {
 		outline: 2px solid var(--accent-color);
 		background-color: var(--secondary-color);
 	}
-}
-
-form {
-	position: relative;
 }
 
 #add-task {
@@ -177,6 +177,9 @@ input[type='checkbox']:checked ~ .task-text {
 }
 
 @media (1536px <= width) {
+	html {
+		font-size: 24px;
+	}
 	main {
 		max-width: 1024px;
 	}
